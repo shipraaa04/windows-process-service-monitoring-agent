@@ -312,18 +312,6 @@ This project teaches:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-## ⚠️ Disclaimer
-
-This tool is developed for **educational and defensive security purposes only**. It is designed to detect malicious activity on systems you own or have explicit permission to monitor. Do not use this tool on systems without proper authorization.
-
----
-
 <div align="center">
   <strong>Built for Blue Team | Defensive Security Engineering</strong><br>
   <em>Detect threats before they cause damage</em>
