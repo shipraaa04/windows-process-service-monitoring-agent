@@ -7,3 +7,6 @@ psutil>=5.9.0
 # Comment these out if running on Linux/Mac in simulation mode
 wmi>=1.5.1
 pywin32>=306
+psutil
+pandas
+streamlit
