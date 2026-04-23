@@ -1,0 +1,446 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-04-23T11:04:12.660854",
+    "agent_version": "2.0",
+    "platform": "Linux",
+    "hostname": "runsc",
+    "scan_mode": "SIMULATION"
+  },
+  "executive_summary": {
+    "total_processes_scanned": 19,
+    "total_services_audited": 8,
+    "total_alerts": 13,
+    "alerts_by_severity": {
+      "HIGH": 7,
+      "CRITICAL": 4,
+      "LOW": 2
+    },
+    "alerts_by_category": {
+      "Parent-Child Anomaly": 2,
+      "Suspicious Startup Service": 6,
+      "Unknown Process": 2,
+      "Suspicious Process Location": 2,
+      "High-Risk Process": 1
+    },
+    "risk_level": "CRITICAL"
+  },
+  "alerts": [
+    {
+      "timestamp": "2026-04-23T11:04:12.659802",
+      "severity": "HIGH",
+      "category": "Parent-Child Anomaly",
+      "title": "Suspicious spawn: winword.exe \u2192 powershell.exe",
+      "description": "'winword.exe' spawned 'powershell.exe' \u2014 this is a known malware execution pattern (e.g., Office macro abuse, living-off-the-land attacks).",
+      "details": {
+        "parent_process": "winword.exe",
+        "parent_pid": 5500,
+        "child_process": "powershell.exe",
+        "child_pid": 5501,
+        "child_exe": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "child_cmdline": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.659896",
+      "severity": "HIGH",
+      "category": "Parent-Child Anomaly",
+      "title": "Suspicious spawn: mshta.exe \u2192 cmd.exe",
+      "description": "'mshta.exe' spawned 'cmd.exe' \u2014 this is a known malware execution pattern (e.g., Office macro abuse, living-off-the-land attacks).",
+      "details": {
+        "parent_process": "mshta.exe",
+        "parent_pid": 5600,
+        "child_process": "cmd.exe",
+        "child_pid": 5601,
+        "child_exe": "C:\\Windows\\System32\\cmd.exe",
+        "child_cmdline": "\"C:\\Windows\\System32\\cmd.exe\"",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.659980",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: WindowsHelperSvc",
+      "description": "Service 'WindowsHelperSvc' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "WindowsHelperSvc",
+        "display_name": "Windows Helper Service",
+        "path": "C:\\Windows\\Temp\\svchelper.exe",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\Windows\\Temp",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660065",
+      "severity": "CRITICAL",
+      "category": "Suspicious Startup Service",
+      "title": "Encoded/script command in service path: WindowsHelperSvc",
+      "description": "Service 'WindowsHelperSvc' path contains '\\temp\\' \u2014 a common persistence technique used by malware.",
+      "details": {
+        "service_name": "WindowsHelperSvc",
+        "path": "C:\\Windows\\Temp\\svchelper.exe",
+        "pattern_matched": "\\temp\\",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660117",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: SysMonSvc",
+      "description": "Service 'SysMonSvc' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "SysMonSvc",
+        "display_name": "System Monitor",
+        "path": "C:\\ProgramData\\sysmon\\sysmon.exe -enc SGVsbG8=",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\ProgramData",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660210",
+      "severity": "CRITICAL",
+      "category": "Suspicious Startup Service",
+      "title": "Encoded/script command in service path: UpdaterTaskSvc",
+      "description": "Service 'UpdaterTaskSvc' path contains 'powershell -enc' \u2014 a common persistence technique used by malware.",
+      "details": {
+        "service_name": "UpdaterTaskSvc",
+        "path": "cmd /c powershell -enc SQBuAHYAbwBrAGUALQBXAGUAYgBS",
+        "pattern_matched": "powershell -enc",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660267",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: UnknownServiceXYZ",
+      "description": "Service 'UnknownServiceXYZ' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "UnknownServiceXYZ",
+        "display_name": "Unknown Service XYZ",
+        "path": "C:\\Users\\Public\\unknown_xyz.exe",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\Users\\Public",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660330",
+      "severity": "CRITICAL",
+      "category": "Suspicious Startup Service",
+      "title": "Encoded/script command in service path: UnknownServiceXYZ",
+      "description": "Service 'UnknownServiceXYZ' path contains '\\public\\' \u2014 a common persistence technique used by malware.",
+      "details": {
+        "service_name": "UnknownServiceXYZ",
+        "path": "C:\\Users\\Public\\unknown_xyz.exe",
+        "pattern_matched": "\\public\\",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660571",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: winword.exe",
+      "description": "'winword.exe' (PID 5500) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "winword.exe",
+        "pid": 5500,
+        "exe_path": "C:\\Program Files\\Microsoft Office\\winword.exe",
+        "username": "DESKTOP-USER",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660653",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mshta.exe",
+      "description": "'mshta.exe' (PID 5600) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mshta.exe",
+        "pid": 5600,
+        "exe_path": "C:\\Windows\\System32\\mshta.exe",
+        "username": "DESKTOP-USER",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660710",
+      "severity": "HIGH",
+      "category": "Suspicious Process Location",
+      "title": "Process running from suspicious path: svchosts.exe",
+      "description": "'svchosts.exe' (PID 6000) is executing from a user-writable or temporary directory \u2014 a common malware staging technique.",
+      "details": {
+        "process_name": "svchosts.exe",
+        "pid": 6000,
+        "exe_path": "C:\\Windows\\Temp\\svchosts.exe",
+        "username": "SYSTEM",
+        "mitre_technique": "T1036 - Masquerading"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660757",
+      "severity": "CRITICAL",
+      "category": "High-Risk Process",
+      "title": "High-risk process detected: nc.exe",
+      "description": "'nc.exe' is a known offensive security / hacking tool. Its presence strongly indicates compromise or unauthorized activity.",
+      "details": {
+        "process_name": "nc.exe",
+        "pid": 7000,
+        "exe_path": "C:\\Users\\Public\\Downloads\\nc.exe",
+        "username": "DESKTOP-USER",
+        "mitre_technique": "T1003 - OS Credential Dumping"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T11:04:12.660802",
+      "severity": "HIGH",
+      "category": "Suspicious Process Location",
+      "title": "Process running from suspicious path: backdoor_svc.exe",
+      "description": "'backdoor_svc.exe' (PID 8000) is executing from a user-writable or temporary directory \u2014 a common malware staging technique.",
+      "details": {
+        "process_name": "backdoor_svc.exe",
+        "pid": 8000,
+        "exe_path": "C:\\ProgramData\\backdoor_svc.exe",
+        "username": "SYSTEM",
+        "mitre_technique": "T1036 - Masquerading"
+      }
+    }
+  ],
+  "processes_snapshot": [
+    {
+      "pid": 4,
+      "name": "system",
+      "ppid": 0,
+      "parent_name": "",
+      "exe_path": "C:\\Windows\\System32\\",
+      "cmdline": "\"C:\\Windows\\System32\\\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 512,
+      "name": "smss.exe",
+      "ppid": 4,
+      "parent_name": "system",
+      "exe_path": "C:\\Windows\\System32\\smss.exe",
+      "cmdline": "\"C:\\Windows\\System32\\smss.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 668,
+      "name": "csrss.exe",
+      "ppid": 512,
+      "parent_name": "smss.exe",
+      "exe_path": "C:\\Windows\\System32\\csrss.exe",
+      "cmdline": "\"C:\\Windows\\System32\\csrss.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 784,
+      "name": "wininit.exe",
+      "ppid": 512,
+      "parent_name": "smss.exe",
+      "exe_path": "C:\\Windows\\System32\\wininit.exe",
+      "cmdline": "\"C:\\Windows\\System32\\wininit.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 832,
+      "name": "winlogon.exe",
+      "ppid": 512,
+      "parent_name": "smss.exe",
+      "exe_path": "C:\\Windows\\System32\\winlogon.exe",
+      "cmdline": "\"C:\\Windows\\System32\\winlogon.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 928,
+      "name": "services.exe",
+      "ppid": 784,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\services.exe",
+      "cmdline": "\"C:\\Windows\\System32\\services.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 960,
+      "name": "lsass.exe",
+      "ppid": 784,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\lsass.exe",
+      "cmdline": "\"C:\\Windows\\System32\\lsass.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 1200,
+      "name": "svchost.exe",
+      "ppid": 928,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "\"C:\\Windows\\System32\\svchost.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 1400,
+      "name": "svchost.exe",
+      "ppid": 928,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "\"C:\\Windows\\System32\\svchost.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 2000,
+      "name": "explorer.exe",
+      "ppid": 832,
+      "parent_name": "winlogon.exe",
+      "exe_path": "C:\\Windows\\explorer.exe",
+      "cmdline": "\"C:\\Windows\\explorer.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 3200,
+      "name": "chrome.exe",
+      "ppid": 2000,
+      "parent_name": "explorer.exe",
+      "exe_path": "C:\\Program Files\\Google\\Chrome\\chrome.exe",
+      "cmdline": "\"C:\\Program Files\\Google\\Chrome\\chrome.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 4100,
+      "name": "notepad.exe",
+      "ppid": 2000,
+      "parent_name": "explorer.exe",
+      "exe_path": "C:\\Windows\\notepad.exe",
+      "cmdline": "\"C:\\Windows\\notepad.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 5500,
+      "name": "winword.exe",
+      "ppid": 2000,
+      "parent_name": "explorer.exe",
+      "exe_path": "C:\\Program Files\\Microsoft Office\\winword.exe",
+      "cmdline": "\"C:\\Program Files\\Microsoft Office\\winword.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 5501,
+      "name": "powershell.exe",
+      "ppid": 5500,
+      "parent_name": "winword.exe",
+      "exe_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "cmdline": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 5600,
+      "name": "mshta.exe",
+      "ppid": 2000,
+      "parent_name": "explorer.exe",
+      "exe_path": "C:\\Windows\\System32\\mshta.exe",
+      "cmdline": "\"C:\\Windows\\System32\\mshta.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 5601,
+      "name": "cmd.exe",
+      "ppid": 5600,
+      "parent_name": "mshta.exe",
+      "exe_path": "C:\\Windows\\System32\\cmd.exe",
+      "cmdline": "\"C:\\Windows\\System32\\cmd.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 6000,
+      "name": "svchosts.exe",
+      "ppid": 928,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\Temp\\svchosts.exe",
+      "cmdline": "\"C:\\Windows\\Temp\\svchosts.exe\"",
+      "username": "SYSTEM"
+    },
+    {
+      "pid": 7000,
+      "name": "nc.exe",
+      "ppid": 5501,
+      "parent_name": "powershell.exe",
+      "exe_path": "C:\\Users\\Public\\Downloads\\nc.exe",
+      "cmdline": "\"C:\\Users\\Public\\Downloads\\nc.exe\"",
+      "username": "DESKTOP-USER"
+    },
+    {
+      "pid": 8000,
+      "name": "backdoor_svc.exe",
+      "ppid": 928,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\ProgramData\\backdoor_svc.exe",
+      "cmdline": "\"C:\\ProgramData\\backdoor_svc.exe\"",
+      "username": "SYSTEM"
+    }
+  ],
+  "services_snapshot": [
+    {
+      "name": "wuauserv",
+      "display_name": "Windows Update",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\Windows\\System32\\svchost.exe -k netsvcs"
+    },
+    {
+      "name": "LanmanServer",
+      "display_name": "Server",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\Windows\\System32\\svchost.exe -k netsvcs"
+    },
+    {
+      "name": "Spooler",
+      "display_name": "Print Spooler",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\Windows\\System32\\spoolsv.exe"
+    },
+    {
+      "name": "MSDTC",
+      "display_name": "Distributed Transaction",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\Windows\\System32\\msdtc.exe"
+    },
+    {
+      "name": "WindowsHelperSvc",
+      "display_name": "Windows Helper Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\Windows\\Temp\\svchelper.exe"
+    },
+    {
+      "name": "SysMonSvc",
+      "display_name": "System Monitor",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\ProgramData\\sysmon\\sysmon.exe -enc SGVsbG8="
+    },
+    {
+      "name": "UpdaterTaskSvc",
+      "display_name": "Updater Task",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "cmd /c powershell -enc SQBuAHYAbwBrAGUALQBXAGUAYgBS"
+    },
+    {
+      "name": "UnknownServiceXYZ",
+      "display_name": "Unknown Service XYZ",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\Users\\Public\\unknown_xyz.exe"
+    }
+  ]
+}

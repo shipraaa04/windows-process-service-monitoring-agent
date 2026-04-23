@@ -1,0 +1,17 @@
+[2026-04-23 16:50:04] [INFO    ] ============================================================
+[2026-04-23 16:50:04] [INFO    ]   MONITORING AGENT — SCAN STARTED
+[2026-04-23 16:50:04] [INFO    ] ============================================================
+[2026-04-23 16:51:50] [INFO    ] ============================================================
+[2026-04-23 16:51:50] [INFO    ]   MONITORING AGENT — SCAN STARTED
+[2026-04-23 16:51:50] [INFO    ] ============================================================
+[2026-04-23 16:51:58] [INFO    ] Enumerated 341 running processes
+[2026-04-23 16:51:58] [INFO    ] Analyzing parent-child process relationships...
+[2026-04-23 16:52:05] [INFO    ] Scanning for unauthorized or high-risk processes...
+[2026-04-23 16:52:05] [INFO    ] Scan completed in 14.82s — 189 alerts generated
+[2026-04-23 16:52:05] [INFO    ] ============================================================
+[2026-04-23 16:52:05] [INFO    ]   MONITORING AGENT — SCAN STARTED
+[2026-04-23 16:52:05] [INFO    ] ============================================================
+[2026-04-23 16:52:12] [INFO    ] Enumerated 340 running processes
+[2026-04-23 16:52:12] [INFO    ] Analyzing parent-child process relationships...
+[2026-04-23 16:52:16] [INFO    ] Scanning for unauthorized or high-risk processes...
+[2026-04-23 16:52:16] [INFO    ] Scan completed in 10.94s — 188 alerts generated

@@ -1,0 +1,3360 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-04-23T16:52:16.761648",
+    "agent_version": "2.0",
+    "platform": "Windows",
+    "hostname": "ShipraSaharawat",
+    "scan_mode": "LIVE"
+  },
+  "executive_summary": {
+    "total_processes_scanned": 340,
+    "total_services_audited": 304,
+    "total_alerts": 188,
+    "alerts_by_severity": {
+      "HIGH": 8,
+      "LOW": 180
+    },
+    "alerts_by_category": {
+      "Parent-Child Anomaly": 2,
+      "Suspicious Startup Service": 3,
+      "Unknown Process": 180,
+      "Suspicious Process Location": 3
+    },
+    "risk_level": "HIGH"
+  },
+  "alerts": [
+    {
+      "timestamp": "2026-04-23T16:52:12.186963",
+      "severity": "HIGH",
+      "category": "Parent-Child Anomaly",
+      "title": "Suspicious spawn: chrome.exe \u2192 cmd.exe",
+      "description": "'chrome.exe' spawned 'cmd.exe' \u2014 this is a known malware execution pattern (e.g., Office macro abuse, living-off-the-land attacks).",
+      "details": {
+        "parent_process": "chrome.exe",
+        "parent_pid": 4280,
+        "child_process": "cmd.exe",
+        "child_pid": 51448,
+        "child_exe": "C:\\Windows\\SysWOW64\\cmd.exe",
+        "child_cmdline": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c C:\\Program Files\\McAfee\\MSC\\MfeBrowserHost.exe chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/ --parent-window=0 < \\\\.\\pipe\\chrome.nativeMessaging.in.dda51a251bf7dec9 > \\\\.\\pipe\\chrome.nativeMessaging.out.dda51a251bf7dec9",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:12.189936",
+      "severity": "HIGH",
+      "category": "Parent-Child Anomaly",
+      "title": "Suspicious spawn: chrome.exe \u2192 cmd.exe",
+      "description": "'chrome.exe' spawned 'cmd.exe' \u2014 this is a known malware execution pattern (e.g., Office macro abuse, living-off-the-land attacks).",
+      "details": {
+        "parent_process": "chrome.exe",
+        "parent_pid": 4280,
+        "child_process": "cmd.exe",
+        "child_pid": 100848,
+        "child_exe": "C:\\Windows\\SysWOW64\\cmd.exe",
+        "child_cmdline": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c C:\\Program Files\\McAfee\\WebAdvisor\\BrowserHost.exe chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/ --parent-window=0 < \\\\.\\pipe\\chrome.nativeMessaging.in.a367529be6786f68 > \\\\.\\pipe\\chrome.nativeMessaging.out.a367529be6786f68",
+        "mitre_technique": "T1059 - Command and Scripting Interpreter"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:15.610267",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: MDCoreSvc",
+      "description": "Service 'MDCoreSvc' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "MDCoreSvc",
+        "display_name": "MDCoreSvc",
+        "path": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\MpDefenderCoreService.exe\"",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\ProgramData",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.108615",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: WdNisSvc",
+      "description": "Service 'WdNisSvc' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "WdNisSvc",
+        "display_name": "Microsoft Defender Antivirus Network Inspection Service",
+        "path": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\NisSrv.exe\"",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\ProgramData",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.151283",
+      "severity": "HIGH",
+      "category": "Suspicious Startup Service",
+      "title": "Service running from suspicious path: WinDefend",
+      "description": "Service 'WinDefend' has its binary in a suspicious directory often used for malware persistence.",
+      "details": {
+        "service_name": "WinDefend",
+        "display_name": "Microsoft Defender Antivirus Service",
+        "path": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\MsMpEng.exe\"",
+        "state": "Running",
+        "suspicious_dir_matched": "C:\\ProgramData",
+        "mitre_technique": "T1543.003 - Create or Modify System Process: Windows Service"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.391436",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 1340) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 1340,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.392912",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: lsaiso.exe",
+      "description": "'lsaiso.exe' (PID 1364) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "lsaiso.exe",
+        "pid": 1364,
+        "exe_path": "C:\\Windows\\System32\\LsaIso.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.394184",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wudfhost.exe",
+      "description": "'wudfhost.exe' (PID 1444) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wudfhost.exe",
+        "pid": 1444,
+        "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.395384",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: fontdrvhost.exe",
+      "description": "'fontdrvhost.exe' (PID 1564) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "fontdrvhost.exe",
+        "pid": 1564,
+        "exe_path": "C:\\Windows\\System32\\fontdrvhost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.398218",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wudfhost.exe",
+      "description": "'wudfhost.exe' (PID 1604) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wudfhost.exe",
+        "pid": 1604,
+        "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.399693",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: ipf_helper.exe",
+      "description": "'ipf_helper.exe' (PID 1620) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "ipf_helper.exe",
+        "pid": 1620,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_cf5beef3831571d4\\ipf_helper.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.404834",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wudfhost.exe",
+      "description": "'wudfhost.exe' (PID 1804) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wudfhost.exe",
+        "pid": 1804,
+        "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.409243",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: unsecapp.exe",
+      "description": "'unsecapp.exe' (PID 2008) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "unsecapp.exe",
+        "pid": 2008,
+        "exe_path": "C:\\Windows\\System32\\wbem\\unsecapp.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.410998",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: intelcphdcpsvc.exe",
+      "description": "'intelcphdcpsvc.exe' (PID 2156) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "intelcphdcpsvc.exe",
+        "pid": 2156,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_80590711807ad49f\\IntelCpHDCPSvc.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.417151",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mfeavsvc.exe",
+      "description": "'mfeavsvc.exe' (PID 2332) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mfeavsvc.exe",
+        "pid": 2332,
+        "exe_path": "C:\\Program Files\\McAfee\\MfeAV\\MfeAVSvc.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.419200",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: touchpointanalyticsclientservice.exe",
+      "description": "'touchpointanalyticsclientservice.exe' (PID 3400) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "touchpointanalyticsclientservice.exe",
+        "pid": 3400,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpanalyticscomp.inf_amd64_ef460d1f2a35fc16\\x64\\TouchpointAnalyticsClientService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.422544",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mfemms.exe",
+      "description": "'mfemms.exe' (PID 3788) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mfemms.exe",
+        "pid": 3788,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\SystemCore\\mfemms.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.424695",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpcc.bg.backgroundapp.exe",
+      "description": "'hpcc.bg.backgroundapp.exe' (PID 4032) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpcc.bg.backgroundapp.exe",
+        "pid": 4032,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.HPThermalControl_1.11.60.0_x64__v10z8vjag6ke6\\Win32Process\\HPCC.Bg.BackgroundApp.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.427450",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mfevtps.exe",
+      "description": "'mfevtps.exe' (PID 4332) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mfevtps.exe",
+        "pid": 4332,
+        "exe_path": "C:\\Windows\\System32\\mfevtps.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.429300",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: protectedmodulehost.exe",
+      "description": "'protectedmodulehost.exe' (PID 4424) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "protectedmodulehost.exe",
+        "pid": 4424,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\ModuleCore\\ProtectedModuleHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.432658",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: ngciso.exe",
+      "description": "'ngciso.exe' (PID 4472) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "ngciso.exe",
+        "pid": 4472,
+        "exe_path": "C:\\Windows\\System32\\NgcIso.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.434314",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: securityhealthsystray.exe",
+      "description": "'securityhealthsystray.exe' (PID 4728) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "securityhealthsystray.exe",
+        "pid": 4728,
+        "exe_path": "C:\\Windows\\System32\\SecurityHealthSystray.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.436030",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: applemobiledeviceservice.exe",
+      "description": "'applemobiledeviceservice.exe' (PID 5160) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "applemobiledeviceservice.exe",
+        "pid": 5160,
+        "exe_path": "C:\\Program Files\\Common Files\\Apple\\Mobile Device Support\\AppleMobileDeviceService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.437634",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: etdservice.exe",
+      "description": "'etdservice.exe' (PID 5172) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "etdservice.exe",
+        "pid": 5172,
+        "exe_path": "C:\\Windows\\System32\\ETDService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.439016",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mdnsresponder.exe",
+      "description": "'mdnsresponder.exe' (PID 5180) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mdnsresponder.exe",
+        "pid": 5180,
+        "exe_path": "C:\\Program Files (x86)\\Bonjour\\mDNSResponder.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.440365",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpcommrecovery.exe",
+      "description": "'hpcommrecovery.exe' (PID 5192) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpcommrecovery.exe",
+        "pid": 5192,
+        "exe_path": "C:\\Program Files\\HPCommRecovery\\HPCommRecovery.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.442276",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: aggregatorhost.exe",
+      "description": "'aggregatorhost.exe' (PID 5228) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "aggregatorhost.exe",
+        "pid": 5228,
+        "exe_path": "C:\\Windows\\System32\\AggregatorHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.443953",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpprintscandoctorservice.exe",
+      "description": "'hpprintscandoctorservice.exe' (PID 5232) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpprintscandoctorservice.exe",
+        "pid": 5232,
+        "exe_path": "C:\\Program Files\\HPPrintScanDoctor\\HPPrintScanDoctorService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.445304",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: ipfsvc.exe",
+      "description": "'ipfsvc.exe' (PID 5260) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "ipfsvc.exe",
+        "pid": 5260,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\dtt_sw.inf_amd64_4a0efaf978352e5b\\ipfsvc.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.448256",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: nssm.exe",
+      "description": "'nssm.exe' (PID 5272) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "nssm.exe",
+        "pid": 5272,
+        "exe_path": "C:\\Program Files (x86)\\ExpressVPN\\bootstrap\\amd64\\nssm.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.449958",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: oneapp.igcc.winservice.exe",
+      "description": "'oneapp.igcc.winservice.exe' (PID 5288) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "oneapp.igcc.winservice.exe",
+        "pid": 5288,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\igcc_dch.inf_amd64_a687edda40db3316\\OneApp.IGCC.WinService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.451559",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: intelaudioservice.exe",
+      "description": "'intelaudioservice.exe' (PID 5304) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "intelaudioservice.exe",
+        "pid": 5304,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcoed.inf_amd64_f1ee27a36959d31b\\AS\\IAS\\IntelAudioService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.453199",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 5320) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 5320,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.454658",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 5420) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 5420,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.456160",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: jhi_service.exe",
+      "description": "'jhi_service.exe' (PID 5428) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "jhi_service.exe",
+        "pid": 5428,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\dal.inf_amd64_3befaa646f991169\\jhi_service.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.458100",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: secomn64.exe",
+      "description": "'secomn64.exe' (PID 5660) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "secomn64.exe",
+        "pid": 5660,
+        "exe_path": "C:\\Windows\\System32\\SECOMN64.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.460663",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: rtkauduservice64.exe",
+      "description": "'rtkauduservice64.exe' (PID 5668) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "rtkauduservice64.exe",
+        "pid": 5668,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_04ff63d068f8c626\\RtkAudUService64.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.462678",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: pefservice.exe",
+      "description": "'pefservice.exe' (PID 5684) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "pefservice.exe",
+        "pid": 5684,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\PEF\\CORE\\PEFService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.464694",
+      "severity": "HIGH",
+      "category": "Suspicious Process Location",
+      "title": "Process running from suspicious path: msmpeng.exe",
+      "description": "'msmpeng.exe' (PID 5744) is executing from a user-writable or temporary directory \u2014 a common malware staging technique.",
+      "details": {
+        "process_name": "msmpeng.exe",
+        "pid": 5744,
+        "exe_path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\MsMpEng.exe",
+        "username": "",
+        "mitre_technique": "T1036 - Masquerading"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.466465",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wmiregistrationservice.exe",
+      "description": "'wmiregistrationservice.exe' (PID 5768) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wmiregistrationservice.exe",
+        "pid": 5768,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\mewmiprov.inf_amd64_d51901c26227fb29\\WMIRegistrationService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.467730",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: xtuservice.exe",
+      "description": "'xtuservice.exe' (PID 5820) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "xtuservice.exe",
+        "pid": 5820,
+        "exe_path": "C:\\Windows\\SysWOW64\\XtuService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.470070",
+      "severity": "HIGH",
+      "category": "Suspicious Process Location",
+      "title": "Process running from suspicious path: mpdefendercoreservice.exe",
+      "description": "'mpdefendercoreservice.exe' (PID 5928) is executing from a user-writable or temporary directory \u2014 a common malware staging technique.",
+      "details": {
+        "process_name": "mpdefendercoreservice.exe",
+        "pid": 5928,
+        "exe_path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\MpDefenderCoreService.exe",
+        "username": "",
+        "mitre_technique": "T1036 - Masquerading"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.471824",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: expressvpnd.exe",
+      "description": "'expressvpnd.exe' (PID 6004) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "expressvpnd.exe",
+        "pid": 6004,
+        "exe_path": "C:\\Program Files (x86)\\ExpressVPN\\expressvpnd\\expressvpnd.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.473239",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: ipf_uf.exe",
+      "description": "'ipf_uf.exe' (PID 6520) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "ipf_uf.exe",
+        "pid": 6520,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_cf5beef3831571d4\\ipf_uf.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.474530",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mccspservicehost.exe",
+      "description": "'mccspservicehost.exe' (PID 7732) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mccspservicehost.exe",
+        "pid": 7732,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\CSP\\5.1.104.0\\McCSPServiceHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.475908",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: unsecapp.exe",
+      "description": "'unsecapp.exe' (PID 7784) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "unsecapp.exe",
+        "pid": 7784,
+        "exe_path": "C:\\Windows\\System32\\wbem\\unsecapp.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.477427",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wmiprvse.exe",
+      "description": "'wmiprvse.exe' (PID 7968) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wmiprvse.exe",
+        "pid": 7968,
+        "exe_path": "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.480045",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 8156) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 8156,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.481516",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: dashost.exe",
+      "description": "'dashost.exe' (PID 8420) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "dashost.exe",
+        "pid": 8420,
+        "exe_path": "C:\\Windows\\System32\\dasHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.483037",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: ms-teams.exe",
+      "description": "'ms-teams.exe' (PID 8636) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "ms-teams.exe",
+        "pid": 8636,
+        "exe_path": "C:\\Program Files\\WindowsApps\\MSTeams_26032.208.4399.5_x64__8wekyb3d8bbwe\\ms-teams.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.484632",
+      "severity": "HIGH",
+      "category": "Suspicious Process Location",
+      "title": "Process running from suspicious path: nissrv.exe",
+      "description": "'nissrv.exe' (PID 8696) is executing from a user-writable or temporary directory \u2014 a common malware staging technique.",
+      "details": {
+        "process_name": "nissrv.exe",
+        "pid": 8696,
+        "exe_path": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26010.5-0\\NisSrv.exe",
+        "username": "",
+        "mitre_technique": "T1036 - Masquerading"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.486048",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: securityhealthservice.exe",
+      "description": "'securityhealthservice.exe' (PID 10452) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "securityhealthservice.exe",
+        "pid": 10452,
+        "exe_path": "C:\\Windows\\System32\\SecurityHealthService.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.487450",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: sihost.exe",
+      "description": "'sihost.exe' (PID 10632) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "sihost.exe",
+        "pid": 10632,
+        "exe_path": "C:\\Windows\\System32\\sihost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.489010",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: onenotem.exe",
+      "description": "'onenotem.exe' (PID 11004) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "onenotem.exe",
+        "pid": 11004,
+        "exe_path": "C:\\Program Files\\Microsoft Office\\root\\Office16\\ONENOTEM.EXE",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.490273",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: bravecrashhandler.exe",
+      "description": "'bravecrashhandler.exe' (PID 11028) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "bravecrashhandler.exe",
+        "pid": 11028,
+        "exe_path": "C:\\Program Files (x86)\\BraveSoftware\\Update\\1.3.361.151\\BraveCrashHandler.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.491706",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: desktopextension.exe",
+      "description": "'desktopextension.exe' (PID 11116) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "desktopextension.exe",
+        "pid": 11116,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.myHP_43.52513.1706.0_x64__v10z8vjag6ke6\\win32\\DesktopExtension.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.493322",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: bravecrashhandler64.exe",
+      "description": "'bravecrashhandler64.exe' (PID 11412) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "bravecrashhandler64.exe",
+        "pid": 11412,
+        "exe_path": "C:\\Program Files (x86)\\BraveSoftware\\Update\\1.3.361.151\\BraveCrashHandler64.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.495485",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mcapexe.exe",
+      "description": "'mcapexe.exe' (PID 12632) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mcapexe.exe",
+        "pid": 12632,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\VSCore_22_2\\mcapexe.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.497274",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 13532) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 13532,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.499100",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpmedianetwork.exe",
+      "description": "'hpmedianetwork.exe' (PID 13540) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpmedianetwork.exe",
+        "pid": 13540,
+        "exe_path": "C:\\Program Files\\HP\\HP Media Network\\HPMediaNetwork.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.500424",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mcshield.exe",
+      "description": "'mcshield.exe' (PID 13860) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mcshield.exe",
+        "pid": 13860,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\AMCore\\mcshield.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.501587",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 14472) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 14472,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.503513",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 15152) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 15152,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.505097",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 15792) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 15792,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.506442",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: systemoptimizer.exe",
+      "description": "'systemoptimizer.exe' (PID 15928) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "systemoptimizer.exe",
+        "pid": 15928,
+        "exe_path": "C:\\Program Files\\HP\\SystemOptimizer\\SystemOptimizer.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.507804",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 16140) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 16140,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.509529",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 16348) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 16348,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.511092",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 17368) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 17368,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.512545",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpsystemmanagement.exe",
+      "description": "'hpsystemmanagement.exe' (PID 17528) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpsystemmanagement.exe",
+        "pid": 17528,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.HPThermalControl_1.11.60.0_x64__v10z8vjag6ke6\\HpSystemManagement.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.514311",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: rtkauduservice64.exe",
+      "description": "'rtkauduservice64.exe' (PID 18668) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "rtkauduservice64.exe",
+        "pid": 18668,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_04ff63d068f8c626\\RtkAudUService64.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.515898",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: overlayhelper.exe",
+      "description": "'overlayhelper.exe' (PID 19368) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "overlayhelper.exe",
+        "pid": 19368,
+        "exe_path": "C:\\Program Files\\HP\\Overlay\\OverlayHelper.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.517241",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: crashpad_handler.exe",
+      "description": "'crashpad_handler.exe' (PID 19548) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "crashpad_handler.exe",
+        "pid": 19548,
+        "exe_path": "C:\\Program Files\\Google\\Drive File Stream\\122.0.1.0\\crashpad_handler.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.519097",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 20136) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 20136,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.520377",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 20244) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 20244,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.521655",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: video.ui.exe",
+      "description": "'video.ui.exe' (PID 20612) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "video.ui.exe",
+        "pid": 20612,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Microsoft.ZuneVideo_10.25031.10021.0_x64__8wekyb3d8bbwe\\Video.UI.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.522705",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 20728) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 20728,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.524355",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: appactions.exe",
+      "description": "'appactions.exe' (PID 20824) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "appactions.exe",
+        "pid": 20824,
+        "exe_path": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\AppActions.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.525669",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: dashost.exe",
+      "description": "'dashost.exe' (PID 21128) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "dashost.exe",
+        "pid": 21128,
+        "exe_path": "C:\\Windows\\System32\\dasHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.527015",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: useroobebroker.exe",
+      "description": "'useroobebroker.exe' (PID 21336) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "useroobebroker.exe",
+        "pid": 21336,
+        "exe_path": "C:\\Windows\\System32\\oobe\\UserOOBEBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.529149",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: rtkauduservice64.exe",
+      "description": "'rtkauduservice64.exe' (PID 21360) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "rtkauduservice64.exe",
+        "pid": 21360,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_04ff63d068f8c626\\RtkAudUService64.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.530943",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: omencommandcenterbackground.exe",
+      "description": "'omencommandcenterbackground.exe' (PID 21628) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "omencommandcenterbackground.exe",
+        "pid": 21628,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.OMENCommandCenter_1101.2503.8.0_x64__v10z8vjag6ke6\\OmenCommandCenterApp\\OmenCommandCenterBackground.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.532614",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: startmenuexperiencehost.exe",
+      "description": "'startmenuexperiencehost.exe' (PID 21672) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "startmenuexperiencehost.exe",
+        "pid": 21672,
+        "exe_path": "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.534317",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 22236) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 22236,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.535708",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: etdctrl.exe",
+      "description": "'etdctrl.exe' (PID 22352) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "etdctrl.exe",
+        "pid": 22352,
+        "exe_path": "C:\\Windows\\System32\\ETDCtrl.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.536904",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: servicehost.exe",
+      "description": "'servicehost.exe' (PID 22388) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "servicehost.exe",
+        "pid": 22388,
+        "exe_path": "C:\\Program Files\\McAfee\\WebAdvisor\\servicehost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.538106",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 22644) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 22644,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.539610",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 23280) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 23280,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.540874",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: crossdeviceresume.exe",
+      "description": "'crossdeviceresume.exe' (PID 23284) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "crossdeviceresume.exe",
+        "pid": 23284,
+        "exe_path": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.542067",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 23368) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 23368,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.543588",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wmiprvse.exe",
+      "description": "'wmiprvse.exe' (PID 23612) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wmiprvse.exe",
+        "pid": 23612,
+        "exe_path": "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.544926",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mcuicnt.exe",
+      "description": "'mcuicnt.exe' (PID 24136) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mcuicnt.exe",
+        "pid": 24136,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\Platform\\McUICnt.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.546130",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 24644) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 24644,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.547510",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 24656) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 24656,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.549156",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: duet.exe",
+      "description": "'duet.exe' (PID 25388) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "duet.exe",
+        "pid": 25388,
+        "exe_path": "C:\\Program Files\\Duet\\Duet Display\\duet.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.550500",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: diagscap.exe",
+      "description": "'diagscap.exe' (PID 26224) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "diagscap.exe",
+        "pid": 26224,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpcustomcapcomp.inf_amd64_db0ee1e66e6d408e\\x64\\DiagsCap.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.551717",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: spotifywidgetprovider.exe",
+      "description": "'spotifywidgetprovider.exe' (PID 26344) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "spotifywidgetprovider.exe",
+        "pid": 26344,
+        "exe_path": "C:\\Program Files\\WindowsApps\\SpotifyAB.SpotifyMusic_1.261.443.0_x64__zpdnekdrzrea0\\SpotifyWidgetProvider.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.553009",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpsystemeventutilitybackground.exe",
+      "description": "'hpsystemeventutilitybackground.exe' (PID 26504) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpsystemeventutilitybackground.exe",
+        "pid": 26504,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.HPSystemEventUtility_3.1.28.0_x64__v10z8vjag6ke6\\SystemEventUtility\\HPSystemEventUtilityBackground.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.554646",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 26588) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 26588,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.555825",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 27396) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 27396,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.556961",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: crossdeviceservice.exe",
+      "description": "'crossdeviceservice.exe' (PID 27708) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "crossdeviceservice.exe",
+        "pid": 27708,
+        "exe_path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.CrossDevice_1.25112.60.0_x64__cw5n1h2txyewy\\CrossDeviceService.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.558514",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: fontdrvhost.exe",
+      "description": "'fontdrvhost.exe' (PID 28432) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "fontdrvhost.exe",
+        "pid": 28432,
+        "exe_path": "C:\\Windows\\System32\\fontdrvhost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.560011",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: googledrivefs.exe",
+      "description": "'googledrivefs.exe' (PID 28724) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "googledrivefs.exe",
+        "pid": 28724,
+        "exe_path": "C:\\Program Files\\Google\\Drive File Stream\\122.0.1.0\\GoogleDriveFS.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.561221",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: omeninstallmonitor.exe",
+      "description": "'omeninstallmonitor.exe' (PID 29752) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "omeninstallmonitor.exe",
+        "pid": 29752,
+        "exe_path": "C:\\Program Files\\HP\\OmenInstallMonitor\\OmenInstallMonitor.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.562343",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: widgets.exe",
+      "description": "'widgets.exe' (PID 30128) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "widgets.exe",
+        "pid": 30128,
+        "exe_path": "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_525.31002.150.0_x64__cw5n1h2txyewy\\Dashboard\\Widgets.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.564262",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: appvshnotify.exe",
+      "description": "'appvshnotify.exe' (PID 30972) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "appvshnotify.exe",
+        "pid": 30972,
+        "exe_path": "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\AppVShNotify.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.565507",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 31048) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 31048,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.566637",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpenhancedlighting.bg.exe",
+      "description": "'hpenhancedlighting.bg.exe' (PID 31764) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpenhancedlighting.bg.exe",
+        "pid": 31764,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.HPEnhance_1.4.4.0_x64__v10z8vjag6ke6\\Win32\\HPEnhancedLighting.Bg.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.568116",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: expressvpnnotificationservice.exe",
+      "description": "'expressvpnnotificationservice.exe' (PID 31956) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "expressvpnnotificationservice.exe",
+        "pid": 31956,
+        "exe_path": "C:\\Program Files (x86)\\ExpressVPN\\expressvpn-ui\\ExpressVPNNotificationService.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.569648",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 32248) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 32248,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.570769",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 32656) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 32656,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.571893",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 33032) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 33032,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.573270",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: applicationframehost.exe",
+      "description": "'applicationframehost.exe' (PID 33368) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "applicationframehost.exe",
+        "pid": 33368,
+        "exe_path": "C:\\Windows\\System32\\ApplicationFrameHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.574387",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: shellhost.exe",
+      "description": "'shellhost.exe' (PID 34588) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "shellhost.exe",
+        "pid": 34588,
+        "exe_path": "C:\\Windows\\System32\\ShellHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.575466",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 34860) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 34860,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.576603",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: textinputhost.exe",
+      "description": "'textinputhost.exe' (PID 35784) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "textinputhost.exe",
+        "pid": 35784,
+        "exe_path": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.577887",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 36424) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 36424,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.579999",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: systemsettingsadminflows.exe",
+      "description": "'systemsettingsadminflows.exe' (PID 38360) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "systemsettingsadminflows.exe",
+        "pid": 38360,
+        "exe_path": "C:\\Windows\\System32\\SystemSettingsAdminFlows.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.581499",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 38476) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 38476,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.582653",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 39308) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 39308,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.643319",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 39368) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 39368,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.646032",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 39432) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 39432,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.649690",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: uihost.exe",
+      "description": "'uihost.exe' (PID 40500) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "uihost.exe",
+        "pid": 40500,
+        "exe_path": "C:\\Program Files\\McAfee\\WebAdvisor\\uihost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.651905",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: monotificationux.exe",
+      "description": "'monotificationux.exe' (PID 41288) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "monotificationux.exe",
+        "pid": 41288,
+        "exe_path": "C:\\Windows\\UUS\\Packages\\Preview\\amd64\\MoNotificationUx.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.662894",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: vmcompute.exe",
+      "description": "'vmcompute.exe' (PID 41300) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "vmcompute.exe",
+        "pid": 41300,
+        "exe_path": "C:\\Windows\\System32\\vmcompute.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.664955",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 41600) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 41600,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.666596",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 41920) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 41920,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.668258",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: officeclicktorun.exe",
+      "description": "'officeclicktorun.exe' (PID 42652) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "officeclicktorun.exe",
+        "pid": 42652,
+        "exe_path": "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\OfficeClickToRun.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.669982",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: openconsole.exe",
+      "description": "'openconsole.exe' (PID 42728) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "openconsole.exe",
+        "pid": 42728,
+        "exe_path": "C:\\Users\\sahar\\AppData\\Local\\Programs\\Microsoft VS Code\\560a9dba96\\resources\\app\\node_modules\\node-pty\\build\\Release\\conpty\\OpenConsole.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.671467",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: windowspackagemanagerserver.exe",
+      "description": "'windowspackagemanagerserver.exe' (PID 43004) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "windowspackagemanagerserver.exe",
+        "pid": 43004,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Microsoft.DesktopAppInstaller_1.27.460.0_x64__8wekyb3d8bbwe\\WindowsPackageManagerServer.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.673335",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: bridgecommunication.exe",
+      "description": "'bridgecommunication.exe' (PID 43108) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "bridgecommunication.exe",
+        "pid": 43108,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpcustomcapcomp.inf_amd64_db0ee1e66e6d408e\\x64\\BridgeCommunication.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.674731",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 43296) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 43296,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.675949",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: browserhost.exe",
+      "description": "'browserhost.exe' (PID 43988) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "browserhost.exe",
+        "pid": 43988,
+        "exe_path": "C:\\Program Files\\McAfee\\WebAdvisor\\browserhost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.677612",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: midisrv.exe",
+      "description": "'midisrv.exe' (PID 46888) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "midisrv.exe",
+        "pid": 46888,
+        "exe_path": "C:\\Windows\\System32\\MidiSrv.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.679380",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: phoneexperiencehost.exe",
+      "description": "'phoneexperiencehost.exe' (PID 47208) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "phoneexperiencehost.exe",
+        "pid": 47208,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Microsoft.YourPhone_1.25122.50.0_x64__8wekyb3d8bbwe\\PhoneExperienceHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.681701",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 50756) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 50756,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.683360",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 51472) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 51472,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.685373",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mousocoreworker.exe",
+      "description": "'mousocoreworker.exe' (PID 52980) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mousocoreworker.exe",
+        "pid": 52980,
+        "exe_path": "C:\\Windows\\UUS\\Packages\\Preview\\amd64\\MoUsoCoreWorker.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.686795",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 53648) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 53648,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.687758",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtransferhost.exe",
+      "description": "'backgroundtransferhost.exe' (PID 54956) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtransferhost.exe",
+        "pid": 54956,
+        "exe_path": "C:\\Windows\\System32\\BackgroundTransferHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.688657",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 55392) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 55392,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.689534",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: lockapp.exe",
+      "description": "'lockapp.exe' (PID 56164) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "lockapp.exe",
+        "pid": 56164,
+        "exe_path": "C:\\Windows\\SystemApps\\Microsoft.LockApp_cw5n1h2txyewy\\LockApp.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.690866",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 57444) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 57444,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.692034",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 58612) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 58612,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.693510",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: dataexchangehost.exe",
+      "description": "'dataexchangehost.exe' (PID 59060) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "dataexchangehost.exe",
+        "pid": 59060,
+        "exe_path": "C:\\Windows\\System32\\DataExchangeHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.694704",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 60024) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 60024,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.695974",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: sysinfocap.exe",
+      "description": "'sysinfocap.exe' (PID 60664) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "sysinfocap.exe",
+        "pid": 60664,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpcustomcapcomp.inf_amd64_db0ee1e66e6d408e\\x64\\SysInfoCap.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.697760",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 61140) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 61140,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.699397",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 61804) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 61804,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.700671",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 62496) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 62496,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.701943",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: widgetservice.exe",
+      "description": "'widgetservice.exe' (PID 65376) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "widgetservice.exe",
+        "pid": 65376,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Microsoft.WidgetsPlatformRuntime_1.6.14.0_x64__8wekyb3d8bbwe\\WidgetService\\WidgetService.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.703255",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 65992) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 65992,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.704483",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 66740) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 66740,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.705851",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 67284) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 67284,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.707550",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 67500) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 67500,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.709613",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 68140) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 68140,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.711272",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 68788) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 68788,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.713320",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 70236) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 70236,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.715393",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 71212) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 71212,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.717592",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 73008) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 73008,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.719119",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 73984) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 73984,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.720446",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: searchprotocolhost.exe",
+      "description": "'searchprotocolhost.exe' (PID 75624) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "searchprotocolhost.exe",
+        "pid": 75624,
+        "exe_path": "C:\\Windows\\System32\\SearchProtocolHost.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.722074",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 76264) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 76264,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.723983",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: googledrivefs.exe",
+      "description": "'googledrivefs.exe' (PID 76292) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "googledrivefs.exe",
+        "pid": 76292,
+        "exe_path": "C:\\Program Files\\Google\\Drive File Stream\\123.0.1.0\\GoogleDriveFS.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.725508",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 77588) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 77588,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.727480",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 80308) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 80308,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.729241",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: pet.exe",
+      "description": "'pet.exe' (PID 81112) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "pet.exe",
+        "pid": 81112,
+        "exe_path": "C:\\Users\\sahar\\.vscode\\extensions\\ms-python.python-2026.4.0-win32-x64\\python-env-tools\\bin\\pet.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.730891",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: systemsettings.exe",
+      "description": "'systemsettings.exe' (PID 81772) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "systemsettings.exe",
+        "pid": 81772,
+        "exe_path": "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.732356",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: cowork-svc.exe",
+      "description": "'cowork-svc.exe' (PID 81792) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "cowork-svc.exe",
+        "pid": 81792,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\resources\\cowork-svc.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.734016",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: openconsole.exe",
+      "description": "'openconsole.exe' (PID 84380) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "openconsole.exe",
+        "pid": 84380,
+        "exe_path": "C:\\Users\\sahar\\AppData\\Local\\Programs\\Microsoft VS Code\\560a9dba96\\resources\\app\\node_modules\\node-pty\\build\\Release\\conpty\\OpenConsole.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.735363",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: crashpad_handler.exe",
+      "description": "'crashpad_handler.exe' (PID 86692) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "crashpad_handler.exe",
+        "pid": 86692,
+        "exe_path": "C:\\Program Files\\Google\\Drive File Stream\\123.0.1.0\\crashpad_handler.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.736580",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: shellexperiencehost.exe",
+      "description": "'shellexperiencehost.exe' (PID 87264) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "shellexperiencehost.exe",
+        "pid": 87264,
+        "exe_path": "C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.738199",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 87728) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 87728,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.739669",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: secocl64.exe",
+      "description": "'secocl64.exe' (PID 88212) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "secocl64.exe",
+        "pid": 88212,
+        "exe_path": "C:\\Windows\\System32\\SECOCL64.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.741036",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: msedgewebview2.exe",
+      "description": "'msedgewebview2.exe' (PID 88884) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "msedgewebview2.exe",
+        "pid": 88884,
+        "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.742398",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: apphelpercap.exe",
+      "description": "'apphelpercap.exe' (PID 91104) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "apphelpercap.exe",
+        "pid": 91104,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpcustomcapcomp.inf_amd64_db0ee1e66e6d408e\\x64\\AppHelperCap.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.743736",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: onedrive.sync.service.exe",
+      "description": "'onedrive.sync.service.exe' (PID 91168) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "onedrive.sync.service.exe",
+        "pid": 91168,
+        "exe_path": "C:\\Program Files\\Microsoft OneDrive\\26.055.0323.0004\\OneDrive.Sync.Service.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.744964",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mmsshost.exe",
+      "description": "'mmsshost.exe' (PID 91772) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mmsshost.exe",
+        "pid": 91772,
+        "exe_path": "C:\\Program Files\\Common Files\\McAfee\\MMSSHost\\MMSSHOST.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.746270",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: runtimebroker.exe",
+      "description": "'runtimebroker.exe' (PID 91876) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "runtimebroker.exe",
+        "pid": 91876,
+        "exe_path": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.748199",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 92268) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 92268,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.749585",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: claude.exe",
+      "description": "'claude.exe' (PID 93340) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "claude.exe",
+        "pid": 93340,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Claude_1.3109.0.0_x64__pzs8sxrjxfjjc\\app\\claude.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.750870",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: brave.exe",
+      "description": "'brave.exe' (PID 94024) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "brave.exe",
+        "pid": 94024,
+        "exe_path": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.752186",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: mfebrowserhost.exe",
+      "description": "'mfebrowserhost.exe' (PID 94328) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "mfebrowserhost.exe",
+        "pid": 94328,
+        "exe_path": "C:\\Program Files\\McAfee\\MSC\\MfeBrowserHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.753825",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: snippingtool.exe",
+      "description": "'snippingtool.exe' (PID 95048) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "snippingtool.exe",
+        "pid": 95048,
+        "exe_path": "C:\\Program Files\\WindowsApps\\Microsoft.ScreenSketch_11.2502.18.0_x64__8wekyb3d8bbwe\\SnippingTool\\SnippingTool.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.755125",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: networkcap.exe",
+      "description": "'networkcap.exe' (PID 97948) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "networkcap.exe",
+        "pid": 97948,
+        "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpcustomcapcomp.inf_amd64_db0ee1e66e6d408e\\x64\\NetworkCap.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.756450",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: wlanext.exe",
+      "description": "'wlanext.exe' (PID 99280) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "wlanext.exe",
+        "pid": 99280,
+        "exe_path": "C:\\Windows\\System32\\wlanext.exe",
+        "username": "",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.757768",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: backgroundtaskhost.exe",
+      "description": "'backgroundtaskhost.exe' (PID 99884) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "backgroundtaskhost.exe",
+        "pid": 99884,
+        "exe_path": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.759083",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: searchhost.exe",
+      "description": "'searchhost.exe' (PID 100544) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "searchhost.exe",
+        "pid": 100544,
+        "exe_path": "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    },
+    {
+      "timestamp": "2026-04-23T16:52:16.760239",
+      "severity": "LOW",
+      "category": "Unknown Process",
+      "title": "Unrecognized process: hpsystemeventutilityhost.exe",
+      "description": "'hpsystemeventutilityhost.exe' (PID 100764) is not in the approved process whitelist. Manual review recommended.",
+      "details": {
+        "process_name": "hpsystemeventutilityhost.exe",
+        "pid": 100764,
+        "exe_path": "C:\\Program Files\\WindowsApps\\AD2F1837.HPSystemEventUtility_3.1.28.0_x64__v10z8vjag6ke6\\SystemEventUtility\\HPSystemEventUtilityHost.exe",
+        "username": "SHIPRASAHARAWAT\\sahar",
+        "mitre_technique": "T1036.005 - Match Legitimate Name or Location"
+      }
+    }
+  ],
+  "processes_snapshot": [
+    {
+      "pid": 0,
+      "name": "system idle process",
+      "ppid": 0,
+      "parent_name": "system idle process",
+      "exe_path": "",
+      "cmdline": "",
+      "username": "NT AUTHORITY\\SYSTEM"
+    },
+    {
+      "pid": 4,
+      "name": "system",
+      "ppid": 0,
+      "parent_name": "system idle process",
+      "exe_path": "",
+      "cmdline": "",
+      "username": "NT AUTHORITY\\SYSTEM"
+    },
+    {
+      "pid": 188,
+      "name": "",
+      "ppid": 4,
+      "parent_name": "system",
+      "exe_path": "",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 232,
+      "name": "registry",
+      "ppid": 4,
+      "parent_name": "system",
+      "exe_path": "Registry",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 768,
+      "name": "smss.exe",
+      "ppid": 4,
+      "parent_name": "system",
+      "exe_path": "C:\\Windows\\System32\\smss.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 920,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1128,
+      "name": "csrss.exe",
+      "ppid": 924,
+      "parent_name": "unknown",
+      "exe_path": "C:\\Windows\\System32\\csrss.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1212,
+      "name": "wininit.exe",
+      "ppid": 924,
+      "parent_name": "unknown",
+      "exe_path": "C:\\Windows\\System32\\wininit.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1340,
+      "name": "msedgewebview2.exe",
+      "ppid": 24644,
+      "parent_name": "msedgewebview2.exe",
+      "exe_path": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe",
+      "cmdline": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe --type=crashpad-handler --user-data-dir=C:\\Users\\sahar\\AppData\\Local\\Packages\\MSTeams_8wekyb3d8bbwe\\LocalCache\\Microsoft\\MSTeams\\EBWebView /prefetch:4 /pfhostedapp:b43145754b16b7fb588028c224a805d3e286b4da --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\sahar\\AppData\\Local\\Packages\\MSTeams_8wekyb3d8bbwe\\LocalCache\\Microsoft\\MSTeams\\EBWebView\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel= --annotation=chromium-version=145.0.7632.110 --annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\145.0.3800.70\\msedgewebview2.exe --annotation=plat=Win64 --annotation=prod=Edge WebView2 --annotation=ver=145.0.3800.70 --initial-client-data=0x170,0x174,0x178,0x14c,0x180,0x7ffecbff0f18,0x7ffecbff0f24,0x7ffecbff0f30",
+      "username": "SHIPRASAHARAWAT\\sahar"
+    },
+    {
+      "pid": 1356,
+      "name": "services.exe",
+      "ppid": 1212,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\services.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1364,
+      "name": "lsaiso.exe",
+      "ppid": 1212,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\LsaIso.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1384,
+      "name": "lsass.exe",
+      "ppid": 1212,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\lsass.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1404,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1440,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1444,
+      "name": "wudfhost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1496,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1532,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1564,
+      "name": "fontdrvhost.exe",
+      "ppid": 1212,
+      "parent_name": "wininit.exe",
+      "exe_path": "C:\\Windows\\System32\\fontdrvhost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1604,
+      "name": "wudfhost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1620,
+      "name": "ipf_helper.exe",
+      "ppid": 6520,
+      "parent_name": "ipf_uf.exe",
+      "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_cf5beef3831571d4\\ipf_helper.exe",
+      "cmdline": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_cf5beef3831571d4\\ipf_helper.exe",
+      "username": "SHIPRASAHARAWAT\\sahar"
+    },
+    {
+      "pid": 1696,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1744,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1804,
+      "name": "wudfhost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\WUDFHost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1976,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 1984,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2008,
+      "name": "unsecapp.exe",
+      "ppid": 1532,
+      "parent_name": "svchost.exe",
+      "exe_path": "C:\\Windows\\System32\\wbem\\unsecapp.exe",
+      "cmdline": "C:\\WINDOWS\\system32\\wbem\\unsecapp.exe -Embedding",
+      "username": "SHIPRASAHARAWAT\\sahar"
+    },
+    {
+      "pid": 2024,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2092,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2144,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2156,
+      "name": "intelcphdcpsvc.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_80590711807ad49f\\IntelCpHDCPSvc.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2172,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2196,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2280,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2332,
+      "name": "mfeavsvc.exe",
+      "ppid": 3788,
+      "parent_name": "mfemms.exe",
+      "exe_path": "C:\\Program Files\\McAfee\\MfeAV\\MfeAVSvc.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2340,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2512,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2548,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2688,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 2788,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3032,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3048,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3076,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3168,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3176,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3184,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3288,
+      "name": "memcompression",
+      "ppid": 4,
+      "parent_name": "system",
+      "exe_path": "MemCompression",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3332,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3400,
+      "name": "touchpointanalyticsclientservice.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\hpanalyticscomp.inf_amd64_ef460d1f2a35fc16\\x64\\TouchpointAnalyticsClientService.exe",
+      "cmdline": "",
+      "username": ""
+    },
+    {
+      "pid": 3416,
+      "name": "svchost.exe",
+      "ppid": 1356,
+      "parent_name": "services.exe",
+      "exe_path": "C:\\Windows\\System32\\svchost.exe",
+      "cmdline": "",
+      "username": ""
+    }
+  ],
+  "services_snapshot": [
+    {
+      "name": "ADPSvc",
+      "display_name": "Aggregated Data Platform Service",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceAndNoImpersonation -p",
+      "description": "This service is used for Aggregated Data Platform scenarios."
+    },
+    {
+      "name": "ALG",
+      "display_name": "Application Layer Gateway Service",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\System32\\alg.exe",
+      "description": "Provides support for 3rd party protocol plug-ins for Internet Connection Sharing"
+    },
+    {
+      "name": "AppIDSvc",
+      "display_name": "Application Identity",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "description": "Determines and verifies the identity of an application. Disabling this service will prevent AppLocker from being enforced."
+    },
+    {
+      "name": "Appinfo",
+      "display_name": "Application Information",
+      "state": "Running",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "description": "Facilitates the running of interactive applications with additional administrative privileges.  If this service is stopped, users will be unable to launch applications with the additional administrative privileges they may require to perform desired user tasks."
+    },
+    {
+      "name": "Apple Mobile Device Service",
+      "display_name": "Apple Mobile Device Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "\"C:\\Program Files\\Common Files\\Apple\\Mobile Device Support\\AppleMobileDeviceService.exe\"",
+      "description": "Provides the interface to Apple mobile devices."
+    },
+    {
+      "name": "AppReadiness",
+      "display_name": "App Readiness",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k AppReadiness -p",
+      "description": "Gets apps ready for use the first time a user signs in to this PC and when adding new apps."
+    },
+    {
+      "name": "AppXSvc",
+      "display_name": "AppX Deployment Service (AppXSVC)",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k wsappx -p",
+      "description": "Provides infrastructure support for deploying Store applications. This service is started on demand and if disabled Store applications will not be deployed to the system, and may not function properly."
+    },
+    {
+      "name": "ApxSvc",
+      "display_name": "Windows Virtual Audio Device Proxy Service",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "description": "Manages virtual audio devices for Windows-based programs.  If this service is stopped, virtual audio devices will not function properly.  If this service is disabled, any services that explicitly depend on it will fail to start"
+    },
+    {
+      "name": "AudioEndpointBuilder",
+      "display_name": "Windows Audio Endpoint Builder",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "description": "Manages audio devices for the Windows Audio service.  If this service is stopped, audio devices and effects will not function properly.  If this service is disabled, any services that explicitly depend on it will fail to start"
+    },
+    {
+      "name": "Audiosrv",
+      "display_name": "Windows Audio",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "description": "Manages audio for Windows-based programs.  If this service is stopped, audio devices and effects will not function properly.  If this service is disabled, any services that explicitly depend on it will fail to start"
+    },
+    {
+      "name": "autotimesvc",
+      "display_name": "Cellular Time",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k autoTimeSvc",
+      "description": "This service sets time based on NITZ messages from a Mobile Network"
+    },
+    {
+      "name": "AxInstSV",
+      "display_name": "ActiveX Installer (AxInstSV)",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k AxInstSVGroup",
+      "description": "Provides User Account Control validation for the installation of ActiveX controls from the Internet and enables management of ActiveX control installation based on Group Policy settings. This service is started on demand and if disabled the installation of ActiveX controls will behave according to default browser settings."
+    },
+    {
+      "name": "BDESVC",
+      "display_name": "BitLocker Drive Encryption Service",
+      "state": "Running",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k netsvcs -p",
+      "description": "BDESVC hosts the BitLocker Drive Encryption service. BitLocker Drive Encryption provides secure startup for the operating system, as well as full volume encryption for OS, fixed or removable volumes. This service allows BitLocker to prompt users for various actions related to their volumes when mounted, and unlocks volumes automatically without user interaction. Additionally, it stores recovery information to Active Directory, if available, and, if necessary, ensures the most recent recovery certificates are used.  Stopping or disabling the service would prevent users from leveraging this functionality."
+    },
+    {
+      "name": "BFE",
+      "display_name": "Base Filtering Engine",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+      "description": "The Base Filtering Engine (BFE) is a service that manages firewall and Internet Protocol security (IPsec) policies and implements user mode filtering. Stopping or disabling the BFE service will significantly reduce the security of the system. It will also result in unpredictable behavior in IPsec management and firewall applications."
+    },
+    {
+      "name": "BITS",
+      "display_name": "Background Intelligent Transfer Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k netsvcs -p",
+      "description": "Transfers files in the background using idle network bandwidth. If the service is disabled, then any applications that depend on BITS, such as Windows Update or MSN Explorer, will be unable to automatically download programs and other information."
+    },
+    {
+      "name": "Bonjour Service",
+      "display_name": "Bonjour Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "\"C:\\Program Files (x86)\\Bonjour\\mDNSResponder.exe\"",
+      "description": "Enables hardware devices and software services to automatically configure themselves on the network and advertise their presence."
+    },
+    {
+      "name": "brave",
+      "display_name": "Brave Update Service (brave)",
+      "state": "Stopped",
+      "start_mode": "Auto",
+      "path": "\"C:\\Program Files (x86)\\BraveSoftware\\Update\\BraveUpdate.exe\" /svc",
+      "description": "Keeps your BraveSoftware software up to date. If this service is disabled or stopped, your BraveSoftware software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This service uninstalls itself when there is no BraveSoftware software using it."
+    },
+    {
+      "name": "BraveElevationService",
+      "display_name": "Brave Elevation Service (BraveElevationService)",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "\"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\147.1.89.141\\elevation_service.exe\"",
+      "description": "Provides elevated privileges for Brave."
+    },
+    {
+      "name": "bravem",
+      "display_name": "Brave Update Service (bravem)",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "\"C:\\Program Files (x86)\\BraveSoftware\\Update\\BraveUpdate.exe\" /medsvc",
+      "description": "Keeps your BraveSoftware software up to date. If this service is disabled or stopped, your BraveSoftware software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This service uninstalls itself when there is no BraveSoftware software using it."
+    },
+    {
+      "name": "BrokerInfrastructure",
+      "display_name": "Background Tasks Infrastructure Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k DcomLaunch -p",
+      "description": "Windows infrastructure service that controls which background tasks can run on the system."
+    },
+    {
+      "name": "BTAGService",
+      "display_name": "Bluetooth Audio Gateway Service",
+      "state": "Running",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNetworkRestricted",
+      "description": "Service supporting the audio gateway role of the Bluetooth Handsfree Profile."
+    },
+    {
+      "name": "BthAvctpSvc",
+      "display_name": "AVCTP service",
+      "state": "Running",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "description": "This is Audio Video Control Transport Protocol service"
+    },
+    {
+      "name": "bthserv",
+      "display_name": "Bluetooth Support Service",
+      "state": "Running",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "description": "The Bluetooth service supports discovery and association of remote Bluetooth devices.  Stopping or disabling this service may cause already installed Bluetooth devices to fail to operate properly and prevent new devices from being discovered or associated."
+    },
+    {
+      "name": "camsvc",
+      "display_name": "Capability Access Manager Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k osprivacy -p",
+      "description": "Provides facilities for managing UWP apps access to app capabilities as well as checking an app's access to specific app capabilities"
+    },
+    {
+      "name": "CDPSvc",
+      "display_name": "Connected Devices Platform Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "description": "This service is used for Connected Devices Platform scenarios"
+    },
+    {
+      "name": "CertPropSvc",
+      "display_name": "Certificate Propagation",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs",
+      "description": "Copies user certificates and root certificates from smart cards into the current user's certificate store, detects when a smart card is inserted into a smart card reader, and, if needed, installs the smart card Plug and Play minidriver."
+    },
+    {
+      "name": "ClickToRunSvc",
+      "display_name": "Microsoft Office Click-to-Run Service",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "\"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" /service",
+      "description": "\u202aManages resource coordination, background streaming, and system integration of Microsoft Office products and their related updates. This service is required to run during the use of any Microsoft Office program, during initial streaming installation and all subsequent updates.\u202c"
+    },
+    {
+      "name": "ClipSVC",
+      "display_name": "Client License Service (ClipSVC)",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\System32\\svchost.exe -k wsappx -p",
+      "description": "Provides infrastructure support for the Microsoft Store. This service is started on demand and if disabled applications bought using the Microsoft Store will not behave correctly."
+    },
+    {
+      "name": "COMSysApp",
+      "display_name": "COM+ System Application",
+      "state": "Stopped",
+      "start_mode": "Manual",
+      "path": "C:\\WINDOWS\\system32\\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}",
+      "description": "Manages the configuration and tracking of Component Object Model (COM)+-based components. If the service is stopped, most COM+-based components will not function properly. If this service is disabled, any services that explicitly depend on it will fail to start."
+    },
+    {
+      "name": "CoreMessagingRegistrar",
+      "display_name": "CoreMessaging",
+      "state": "Running",
+      "start_mode": "Auto",
+      "path": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNoNetwork -p",
+      "description": "Manages communication between system components."
+    }
+  ]
+}
