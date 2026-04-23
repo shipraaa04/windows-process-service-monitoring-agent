@@ -1,0 +1,57 @@
+# Contributing to Windows Service & Process Monitoring Agent
+
+Thank you for your interest in contributing! This is a blue team cybersecurity project and all contributions that improve detection quality, code clarity, or documentation are welcome.
+
+---
+
+## 🐛 Reporting Bugs
+
+If you find a bug, open a GitHub Issue with the following details:
+
+- Your operating system and Python version
+- The exact command you ran
+- The full error message or unexpected output
+- Steps to reproduce the problem
+
+---
+
+## 💡 Suggesting New Detection Rules
+
+Want to add a new detection rule? Open an Issue with:
+
+- The attack technique you want to detect
+- The MITRE ATT&CK technique ID (e.g., T1059.001)
+- A realistic example of what the malicious behavior looks like (process name, parent, path, etc.)
+
+---
+
+## 🔧 Adding Code
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes in `monitoring_agent.py`
+4. Test on both Windows (live mode) and any OS (simulation mode)
+5. Submit a Pull Request with a clear description of what you changed and why
+
+### Code Style Guidelines
+
+- Follow PEP 8 formatting
+- Every new detection rule must include a MITRE ATT&CK ID in the alert's `details` dict
+- New modules should follow the existing pattern: `__init__(logger)` + main method returning a list of `Alert` objects
+- Add your rule to the detection rules table in `README.md`
+
+---
+
+## 📋 Areas That Need Help
+
+- Adding more entries to `HIGH_RISK_PROCESSES` blacklist
+- Adding more parent-child rules to `SUSPICIOUS_PARENT_CHILD`
+- Windows Event Log integration (reading Security/System event logs)
+- Email or webhook alerting for critical findings
+- Unit tests for each detection module
+
+---
+
+## ⚠️ Important
+
+All contributions must be for **defensive and educational purposes only**. Any contribution that adds functionality to attack or harm systems will be rejected.
