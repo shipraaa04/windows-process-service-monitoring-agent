@@ -1,0 +1,5 @@
+streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+streamlit==1.56.0
+psutil==5.9.8
+pandas==2.2.2
+numpy==1.26.4
