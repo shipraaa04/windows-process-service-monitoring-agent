@@ -1,0 +1,7 @@
+[2026-05-09 14:28:31] [INFO    ] ============================================================
+[2026-05-09 14:28:31] [INFO    ]   MONITORING AGENT — SCAN STARTED
+[2026-05-09 14:28:31] [INFO    ] ============================================================
+[2026-05-09 14:28:37] [INFO    ] Enumerated 391 running processes
+[2026-05-09 14:28:37] [INFO    ] Analyzing parent-child process relationships...
+[2026-05-09 14:28:41] [INFO    ] Scanning for unauthorized or high-risk processes...
+[2026-05-09 14:28:42] [INFO    ] Scan completed in 10.81s — 225 alerts generated

@@ -1,0 +1,34 @@
+# Changelog
+
+All notable changes to the Windows Service & Process Monitoring Agent are documented here.
+
+---
+
+## [2.0.0] — 2026-04-23
+
+### Added
+- Full modular pipeline architecture with 5 independent detection modules
+- `ParentChildAnalyzer` — detects 15+ forbidden parent-child process relationships
+- `StartupServiceAuditor` — WMI-based service enumeration with path and command analysis
+- `UnauthorizedProcessDetector` — whitelist/blacklist engine with 50+ approved processes
+- `ReportGenerator` — structured JSON reports + colour-coded console summaries
+- Simulation mode for non-Windows systems (full demo with realistic threat scenarios)
+- MITRE ATT&CK technique mapping on every alert (T1059, T1543.003, T1036, T1003, T1055)
+- CLI interface with `--continuous`, `--interval`, and `--output` flags
+- Severity-tiered alerting: CRITICAL / HIGH / MEDIUM / LOW / INFO
+- High-risk process blacklist: mimikatz, nc.exe, procdump, meterpreter and 15+ more
+- Suspicious directory detection: Temp, Public, ProgramData, AppData
+- Timestamped event logging to file and console simultaneously
+
+### Detection Rules Added
+- R-001 to R-010 covering Office macro abuse, LOTL attacks, service persistence, masquerading
+
+---
+
+## [1.0.0] — 2026-03-01
+
+### Added
+- Initial proof-of-concept process enumerator using psutil
+- Basic parent-child relationship check for winword.exe and excel.exe
+- Simple text-based console output
+- Single-scan mode only
